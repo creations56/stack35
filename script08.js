@@ -4,6 +4,7 @@ let titreBouton='',
   dern='', // dernier caractere entré
   avDern='' // avant dernier caractere entré
   numerique='1234567890', // les caracteres numeriques
+  bigNumber=1E10, // gestion imprecision calcul Math.tan
   espace=String.fromCharCode(160), //&nsp
   fleche=String.fromCharCode(8594),
   retLigne=String.fromCharCode(10),
@@ -18,7 +19,8 @@ let titreBouton='',
   results='\n',
   listOpe=[],
   ope=[],
-  listWarning=['large number, SCI mode set'];
+  listWarning=['large number, SCI mode set','0 divided by 0 is undefined','division by 0 not allowed','value must be between -1 and +1','TAN not valid for this value'];
+  
   
 
 aInput = document.getElementById('ainput'); 
@@ -46,6 +48,13 @@ document.querySelectorAll('.bgris').forEach(item => {
   })
 });
 
+document.querySelectorAll('.bbleu').forEach(item => {
+  item.addEventListener('click', event => {    
+    const {target} = event;
+	titreBouton=target.textContent;
+	boutonBleu(titreBouton);
+  })
+});
 
 function fUp(){
   // decale pile vers le haut
@@ -66,6 +75,7 @@ function fEnter(){
       fUp();
       pile0=parseFloat(aInput.textContent);
       affichageInput('');
+      affichageResults('ENTER');
       entreeEnCours=false;
     }
     else {return}
@@ -160,7 +170,7 @@ function boutonBlanc(x) {
 function boutonGris(x){
   //aResults.textContent=x;
   let flagR=true; // affichageResults
-  if (x==='ENTER'){fEnter()}
+  if (x==='ENTER'){fEnter();flagR=false};// fEnter affiche deja results
   if (x==='PI'){affichageInput('');fUp();pile0=Math.PI}
   if (x==='DROP'){fDown()}
   if (x==='DUP'){fEnter();fUp();pile0=pile1}
@@ -178,6 +188,71 @@ function boutonGris(x){
   affichagePile(); // attention affichage doit etre avant fResults cause fixsci
   if (flagR===true){affichageResults(x);}
 }// fin de boutonGris
+
+function boutonBleu(x){
+  //aResults.textContent=x;
+  let flagR=true; // affichageResults
+  let r=0; // valeur intermediaire
+  if (x==='DIV'){
+    fEnter();
+    r=pile1/pile0;
+    if (isNaN(r)) {warning=listWarning[1];flagR=false}
+    else if (isFinite(r)===false) {warning=listWarning[2];flagR=false}
+    else {pile1=r;fDown()}
+    }
+  if (x==='MUL'){fEnter();pile1=pile1*pile0;fDown()}
+  if (x==='MINU'){fEnter();pile1=pile1-pile0;fDown()}
+  if (x==='PLUS'){fEnter();pile1=pile1+pile0;fDown()}
+  if (x==='CHS'){fEnter();pile0=-pile0}
+  if (x==='INV'){
+    fEnter();
+    r=1/pile0;
+    if (isFinite(r)===false) {warning=listWarning[2];flagR=false}
+    else {pile1=r;fDown()}
+  }
+  if (x==='ASIN'){
+    fEnter();
+    r=Math.asin(pile0); // en radians
+    if (isNaN(r)) {warning=listWarning[3];flagR=false} // val sup a 1 ou inf a -1
+    else {if (degrad==='DEG'){r=r/Math.PI*180}; pile0=r}
+    }
+  if (x==='ACOS'){
+    fEnter();
+    r=Math.acos(pile0); // en radians
+    if (isNaN(r)) {warning=listWarning[3];flagR=false} // val sup a 1 ou inf a -1
+    else {if (degrad==='DEG'){r=r/Math.PI*180}; pile0=r}
+  }
+  if (x==='ATAN'){
+    fEnter();
+    r=Math.atan(pile0); // en radians
+    if (degrad==='DEG'){r=r/Math.PI*180};
+    pile0=r;
+  }
+  if (x==='SIN'){
+    fEnter();
+    if (degrad==='DEG'){r=pile0/180*Math.PI}
+    else {r=pile0}
+    pile0=Math.sin(r); //  r en radians
+  }
+  if (x==='COS'){
+    fEnter();
+    if (degrad==='DEG'){r=pile0/180*Math.PI}
+    else {r=pile0}
+    pile0=Math.cos(r); //  r en radians
+  }
+  if (x==='TAN'){
+    fEnter();
+    if (degrad==='DEG'){r=pile0/180*Math.PI}
+    else {r=pile0} 
+    r=Math.tan(r);
+    if ((isFinite(r)===false)||(Math.abs(r)>bigNumber)) {warning=listWarning[4];flagR=false} // gestion imprecision Math.tan
+    else {pile0=r}
+  }
+  
+  affichagePile(); // attention affichage doit etre avant fResults cause fixsci
+  if (flagR===true){affichageResults(x);}
+}// fin de boutonGris
+
 
 affichagePile();
 affichageResults('INIT');
