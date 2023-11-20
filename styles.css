@@ -125,6 +125,8 @@ a{
   grid-row: 6;
   font-family: "arial";
   font-weight: bold;
+  background-color: #404040;/*remplace valeur de la class*/
+  border-radius: 5px;
   font-size: 16px;/*remplace valeur de la class*/
   vertical-align:middle;
   line-height: 45px; /* pour que vertical-align fonctionne */
@@ -135,6 +137,8 @@ a{
   grid-row: 6;
   font-family: "arial";
   font-weight: bold;
+  background-color: #404040;/*remplace valeur de la class*/
+  border-radius: 5px;
   font-size: 16px;/*remplace valeur de la class*/
   vertical-align:middle;
   line-height: 45px; /* pour que vertical-align fonctionne */
@@ -145,6 +149,8 @@ a{
   grid-row: 6;
   font-family: "arial";
   font-weight: bold;
+  background-color: #404040;/*remplace valeur de la class*/
+  border-radius: 5px;
   font-size: 16px;/*remplace valeur de la class*/
   vertical-align:middle;
   line-height: 45px; /* pour que vertical-align fonctionne */
@@ -153,11 +159,11 @@ a{
 
 #astack35{ 
   grid-column: 4/7;
-  grid-row: 8;
+  grid-row: 7/9;
   vertical-align:middle;
-  line-height: 40px; /* pour que vertical-align fonctionne */
+  line-height: 90px; /* pour que vertical-align fonctionne */
   border: 0px;
-  font-size: 16px;
+  font-size: 20px;
   font-style: italic;
   color: white;  
 }
@@ -229,7 +235,7 @@ button{
 #bdeg{grid-column: 1;grid-row: 7;}
 #bfix{grid-column: 2;grid-row: 7;}
 #bdplus{ grid-column: 3;grid-row: 7;}
-#bcrst{grid-column: 7;grid-row: 8;color: rgb(255,200,200); /*remplace la valeur class*/}
+#bcrst{grid-column: 7;grid-row: 7/9;height: 90px;color: rgb(255,200,200); /*remplace la valeur class*/}
 
 #brad{grid-column: 1;grid-row: 8;}
 #bsci{grid-column: 2;grid-row: 8;}
