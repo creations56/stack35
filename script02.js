@@ -26,6 +26,9 @@ let titreBouton='',
 
 aInput = document.getElementById('ainput'); 
 aInfo = document.getElementById('ainfo'); 
+aDeg=document.getElementById('adeg');
+aFix=document.getElementById('afix');
+aDplus=document.getElementById('adplus');
 aResults=document.getElementById('aresults');
 aPile0 = document.getElementById('apile0'); 
 aPile1 = document.getElementById('apile1'); 
@@ -87,16 +90,15 @@ function fEnter(){
 function affichageInfo(){
   // mise a jour affichage info
   // le texte est affiche en rouge si warning
-  if (warning===''){aInfo.style.color="black";
-  aInfo.textContent=degrad+' , '+fixsci+' , '+decimales;
-  eInfo.style.color="black";
-  eInfo.textContent='modes'}
+  aDeg.textContent=degrad;
+  aFix.textContent=fixsci;
+  aDplus.textContent=decimales;
   
-  else {aInfo.style.color="red";
+  if (warning ===''){aInfo.textContent="";}
+  else {aInfo.style.color="#ff3300";
   aInfo.textContent=warning;
     warning='';
-    eInfo.style.color="red";
-    eInfo.textContent='warning'}
+  }
 }
 
 function affichageResults(x){
@@ -109,7 +111,7 @@ function affichageResults(x){
   long=listOpe.length;
   aResults.textContent='';
   for (let i = 0; i < long; i++) {
-    results=listOpe[i][0].padEnd(10,espace)+fleche+listOpe[i][1].padStart(18,espace);
+    results=listOpe[i][0].padEnd(6,espace)+fleche+listOpe[i][1].padStart(16,espace);
     aResults.textContent=aResults.textContent+'\u000A'+results;
   }
 }
