@@ -32,10 +32,6 @@ a{
  grid-auto-rows: minmax(20px, auto);/* hauteur des lignes*/
  border: 2px solid #ffffff;
  border-radius: 10px; 
- // ajout ............
- width: 90vw;
- //height: 80vh;
- //margin: 1vh auto;
 }
 
 /*zone des affichages*/
