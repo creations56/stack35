@@ -1,0 +1,299 @@
+body{
+	background-color:#aaaaaa;
+	text-align: center;
+	font-size: 20px;
+	touch-action: manipulation;/*supprime double touche pour zoomer*/
+}
+
+h1{
+	font-size: 20px; 
+	color: #505050;
+	padding: 0px;
+	margin: 0px;
+}
+
+a{
+  color: #eeeeee;
+}
+
+
+/*    ---------- classes ---------   */
+
+.cadre {
+ 
+ width:470px;
+ text-align: center;
+ background-color: #505050;
+ justify-content: center;/*centrage dans la boite*/
+ display: grid;
+ margin: 0 auto; /* centrage de la boite */ 
+ grid-template-columns: repeat(7,60px);
+ grid-gap: 5px;
+ grid-auto-rows: minmax(20px, auto);/* hauteur des lignes*/
+ border: 2px solid #ffffff;
+ border-radius: 10px; 
+ // ajout ............
+ width: 90vw;
+ height: 90vh;
+ margin: 1vh auto;
+}
+
+/*zone des affichages*/
+.a{
+  /* caracteristiques communes aux affichages*/
+  background-color: rgb(255,255,220);
+  padding-right: 10px;
+  text-align: right; 
+  border: 1px solid rgb(0,0,0);
+  border-radius: 5px;
+}
+.a1{
+  /* caracteristiques affichage statique*/
+  background-color: transparent;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.a2{
+  /* caracteristiques affichage modes en vert */
+  color:#63FF33;
+  background-color: transparent;
+  text-align: center;
+}
+
+
+/*    ---------- identifiants ---------   */
+
+#amem {
+  grid-column: 1/5;
+  grid-row: 1;
+  background-color: rgb(255,255,240);
+  margin-top: 5px;
+  height: 50px; /* compenser le top-margin */
+  vertical-align:middle;
+  line-height: 50px; /* pour que vertical-align fonctionne */
+}
+#apile2 { 
+  grid-column: 1/5;
+  grid-row: 2;
+  vertical-align:middle;
+  line-height: 50px; /* pour que vertical-align fonctionne */
+}
+#apile1 {
+  grid-column:1/5;
+  grid-row: 3;
+  vertical-align:middle;
+  line-height: 50px; /* pour que vertical-align fonctionne */
+}
+#apile0 {
+  grid-column: 1/5;
+  grid-row: 4;
+  vertical-align:middle;
+  line-height: 50px; /* pour que vertical-align fonctionne */
+}
+#aresults {
+  grid-column: 5/8;
+  grid-row: 1/6;
+  white-space: pre-line; /* /n retour a la ligne */
+  text-align: left; /*remplace valeur de la class*/
+  padding-top: 20px;
+  padding-left: 10px;/*remplace valeur de la class*/
+  padding-right: 0px;/*remplace valeur de la class*/
+  margin-top:5px;
+  background-color: rgb(255,255,255);/*remplace valeur de la class*/
+  font-size: 12px;
+  font-family: "Courier New", Courier, monospace; // pour alignement caracteres  
+}
+
+#ainput {
+  grid-column: 1/5;
+  grid-row: 5;
+  background-color: rgb(240,240,240);/*remplace valeur de la class*/
+  vertical-align:middle;
+  line-height: 50px; /* pour que vertical-align fonctionne */
+}
+
+#ainfo { /* messages d'erreur. */
+  grid-column: 4/8;
+  grid-row: 6;
+  text-align: center; /*remplace valeur de la class*/
+  background-color: #404040;/*remplace valeur de la class*/
+  font-size: 16px;/*remplace valeur de la class*/
+  /*border: 1px solid rgb(0,0,0);*/
+  border-radius: 5px;
+  vertical-align:middle;
+  line-height: 45px; /* pour que vertical-align fonctionne */
+}
+
+#adeg {
+  grid-column: 1;
+  grid-row: 6;
+  font-family: "arial";
+  font-weight: bold;
+  background-color: #404040;/*remplace valeur de la class*/
+  border-radius: 5px;
+  font-size: 16px;/*remplace valeur de la class*/
+  vertical-align:middle;
+  line-height: 45px; /* pour que vertical-align fonctionne */
+}
+
+#afix {
+  grid-column: 2;
+  grid-row: 6;
+  font-family: "arial";
+  font-weight: bold;
+  background-color: #404040;/*remplace valeur de la class*/
+  border-radius: 5px;
+  font-size: 16px;/*remplace valeur de la class*/
+  vertical-align:middle;
+  line-height: 45px; /* pour que vertical-align fonctionne */
+}
+
+#adplus {
+  grid-column: 3;
+  grid-row: 6;
+  font-family: "arial";
+  font-weight: bold;
+  background-color: #404040;/*remplace valeur de la class*/
+  border-radius: 5px;
+  font-size: 16px;/*remplace valeur de la class*/
+  vertical-align:middle;
+  line-height: 45px; /* pour que vertical-align fonctionne */
+}
+
+
+#astack35{ 
+  grid-column: 4/7;
+  grid-row: 7/9;
+  vertical-align:middle;
+  line-height: 90px; /* pour que vertical-align fonctionne */
+  border: 0px;
+  font-size: 20px;
+  font-style: italic;
+  color: white;  
+}
+
+/*zones des etiquettes affichage*/
+.e{
+  /* caracteristiques communes aux etiquettes*/
+  font-size: 16px;
+  text-align:left;
+  padding-left: 5px;;
+}
+
+#ex{
+  grid-column: 1;
+  grid-row: 4;
+}
+#ey{
+  grid-column: 1;
+  grid-row:3;
+}
+#ez{
+  grid-column: 1;
+  grid-row:2;
+}
+#emem{
+  grid-column: 1;
+  grid-row:1;
+}
+#eresults{
+  grid-column: 5/9;
+  grid-row:1;
+}
+
+#einput{
+  grid-column: 1;
+  grid-row:5;
+}
+
+/*.  zone des bouttons.  */
+
+button{
+  /* concerne tous les boutons*/
+  font-size: 16px;  /* min 16 pour eviter zoom auto sur IPhone*/
+  font-weight: bold;
+  justify-content: center;
+  height: 45px;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  padding: 0px;
+}
+.bgris{
+  /*concerne les boutons gris*/
+  background: linear-gradient(to bottom,#999999, #666666);
+  color: white;
+}
+.bbleu{
+  /*concerne les boutons bleus*/
+  background: linear-gradient(to bottom,#e6f0ff, #4d94ff);
+  color: black;
+}
+.bblanc{
+  /*concerne les boutons blancs*/
+  background: linear-gradient(to bottom,#ffffff, #999999);
+  color: black;
+}
+
+
+
+#bdeg{grid-column: 1;grid-row: 7;}
+#bfix{grid-column: 2;grid-row: 7;}
+#bdplus{ grid-column: 3;grid-row: 7;}
+#bcrst{grid-column: 7;grid-row: 7/9;height: 90px;color: rgb(255,200,200); /*remplace la valeur class*/}
+
+#brad{grid-column: 1;grid-row: 8;}
+#bsci{grid-column: 2;grid-row: 8;}
+#bdmoins{grid-column: 3;grid-row: 8;}
+
+#bsin{grid-column: 1;grid-row: 9;}
+#bcos{grid-column: 2;grid-row: 9;}
+#btan{grid-column: 3;grid-row: 9;}
+#blog{grid-column: 4;grid-row: 9;}
+#bln{grid-column: 5;grid-row: 9;}
+#bsqrt{grid-column: 6;grid-row: 9;}
+#bchs{grid-column: 7;grid-row: 9;}
+
+
+#basin{grid-column: 1;grid-row: 10;}
+#bacos{grid-column: 2;grid-row: 10;}
+#batan{grid-column: 3;grid-row: 10;}
+#bpwr{grid-column: 4;grid-row: 10;}
+#bexp{grid-column: 5;grid-row: 10;}
+#bx2{grid-column: 6;grid-row: 10;}
+#binv{grid-column: 7;grid-row: 10;}
+
+
+#b7{grid-column: 1;grid-row: 11;}
+#b8{grid-column: 2;grid-row: 11;}
+#b9{grid-column: 3;grid-row: 11;}
+#bc{grid-column: 4;grid-row: 11;color: rgb(255,100,100); /*remplace la class*/}
+#bcstk{grid-column: 5;grid-row: 11;color: rgb(255,200,200); /*remplace la valeur class*/}
+#bswap{grid-column: 6;grid-row: 11}
+#bplus{grid-column: 7;grid-row: 11;background: linear-gradient(to bottom, #66a3ff, #0047b3);color:white; /*remplace la valeur class*/}
+
+#b4{grid-column: 1;grid-row: 12;}
+#b5{grid-column: 2;grid-row: 12;}
+#b6{grid-column: 3;grid-row: 12;}
+#bac{grid-column: 4;grid-row: 12;color: rgb(255,100,100); /*remplace la valeur class*/}
+#bdup{grid-column: 6;grid-row: 12;}
+#bsto{grid-column: 5;grid-row: 12;}
+#bminu{grid-column: 7;grid-row: 12;background: linear-gradient(to bottom, #66a3ff, #0047b3);color:white; /*remplace la valeur class*/}
+
+#b1{grid-column: 1;grid-row: 13;}
+#b2{grid-column: 2;grid-row: 13;}
+#b3{grid-column: 3;grid-row: 13;}
+#bmoins{grid-column: 4;grid-row: 13;)}
+#bdrop{grid-column: 6;grid-row: 13;}
+#brcl{grid-column: 5;grid-row: 13;}
+#bmul{grid-column: 7;grid-row: 13;background: linear-gradient(to bottom, #66a3ff, #0047b3); color:white;/*remplace la valeur class*/}
+
+#b0{grid-column: 1;grid-row: 14;margin-bottom: 5px;
+  height: "50px;" /* compenser le top-margin */} 
+/* ajout marge inferieure de 5pixelssur la ligne du bas*/
+#bpoint{grid-column: 2;grid-row: 14;}
+#be{grid-column: 3;grid-row: 14;}
+#benter{grid-column: 5/7;grid-row: 14;}
+#bpi{grid-column: 4;grid-row: 14;background: linear-gradient(to bottom,#ffffff, #999999);
+color: black;/*remplace la couleur gris par blanc*/}
+#bdiv{grid-column: 7;grid-row: 14;background: linear-gradient(to bottom, #66a3ff, #0047b3);color:white; /*remplace la valeur class*/}
